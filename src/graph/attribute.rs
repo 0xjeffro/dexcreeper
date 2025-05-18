@@ -1,6 +1,5 @@
 // The dynamic attribute layer of the graph
 
-use std::future;
 use std::sync::{Arc, RwLock};
 use std::time::Instant;
 use tokio::task::JoinSet;
@@ -61,7 +60,7 @@ impl GraphWithAttr {
 
         let semaphore = Arc::new(tokio::sync::Semaphore::new(max_concurrency));
         let mut join_set = JoinSet::new();
-        for (edge_idx, last_update) in edges_to_update {
+        for (edge_idx, _last_update) in edges_to_update {
             let attr = self.attr[edge_idx].clone();
             let semaphore = semaphore.clone();
             let update_fn = update_fn.clone();
