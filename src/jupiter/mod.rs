@@ -1,1 +1,1 @@
-mod quote;
+pub(crate) mod quote;
