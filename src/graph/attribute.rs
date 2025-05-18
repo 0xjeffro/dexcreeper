@@ -4,7 +4,7 @@ use std::sync::{Arc, RwLock};
 use crate::graph::topology::GraphTopology;
 use crate::jupiter::quote::QuoteResponse;
 
-pub struct GraphInstance {
+pub struct GraphWithAttr {
     pub topology: Arc<GraphTopology>,
     pub start_node: usize,
     pub start_amount: f64,
@@ -23,7 +23,7 @@ impl EdgeAttribute {
     }
 }
 
-impl GraphInstance {
+impl GraphWithAttr {
     pub fn new(topology: Arc<GraphTopology>, start_node: usize, start_amount: f64) -> Self {
         let n_edge = topology.to.len();
         Self {
