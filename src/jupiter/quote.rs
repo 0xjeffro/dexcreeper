@@ -48,7 +48,7 @@ pub struct QuoteParams {
     as_legacy_transaction: Option<bool>,
 
     /// Take fees in basis points
-    /// Used together with feeAccount in /swap, see Adding Fees guide: https://dev.jup.ag/docs/swap-api/add-fees-to-swap
+    /// Used together with feeAccount in /swap, see：Adding Fees guide: https://dev.jup.ag/docs/swap-api/add-fees-to-swap
     platform_fee_bps: Option<u64>,
 
     /// Rough estimate of the max accounts to be used for the quote
