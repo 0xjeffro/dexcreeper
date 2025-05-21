@@ -2,7 +2,7 @@
 // The input should guarantee that nodes are compactly numbered from 1 to n
 // Node id 0 is reserved as an empty node
 
-pub struct GraphTopology {
+pub struct StaticGraph {
     pub head: Vec<Option<usize>>, // head[i] is the index of the first edge from node i
     pub to: Vec<usize>, // to[i] is the destination node of edge i
     pub next: Vec<Option<usize>>, // next[i] is the index of the next edge from the same node as edge i
@@ -14,7 +14,7 @@ pub struct EdgeInfo {
     pub output_mint: String,
 }
 
-impl GraphTopology {
+impl StaticGraph {
     pub fn new(n_node: usize) -> Self {
         Self {
             head: vec![None; n_node + 1], // head[0] is reserved for the empty node

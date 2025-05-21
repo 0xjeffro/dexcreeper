@@ -135,10 +135,10 @@ pub async fn quote(url: &str, params: QuoteParams) -> Result<QuoteResponse, Box<
 
     let body = response.text().await?;
 
-    #[cfg(debug_assertions)]
-    {
-        println!("Response: {}", body);
-    }
+    // #[cfg(debug_assertions)]
+    // {
+    //     println!("Quote Resp: {}", body);
+    // }
 
     let _quote_rsp: QuoteResponse = serde_json::from_str(&body)?;
     Ok(_quote_rsp)
