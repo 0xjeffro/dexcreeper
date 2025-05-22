@@ -2,6 +2,7 @@ use reqwest::Url;
 use serde::{Deserialize, Serialize};
 
 /// Doc: https://dev.jup.ag/docs/swap-api/get-quote
+#[derive(Debug)]
 pub struct QuoteParams {
     /// <Required>
     /// The input mint address
@@ -144,7 +145,7 @@ pub async fn quote(url: &str, params: QuoteParams) -> Result<QuoteResponse, Box<
     Ok(_quote_rsp)
 }
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct SwapInfo {
     #[serde(rename = "ammKey")]
     pub amm_key: String,
@@ -163,22 +164,21 @@ pub struct SwapInfo {
     pub fee_mint: String,
 }
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct RoutePlan {
     #[serde(rename = "swapInfo")]
     pub swap_info: SwapInfo,
     pub percent: i64,
 }
 
-#[derive(Serialize, Deserialize)]
-#[derive(Debug)]
+#[derive(Serialize, Deserialize,Clone, Debug)]
 pub struct PlatformFee {
     pub amount: String,
     #[serde(rename = "feeBps")]
     pub fee_bps: i64,
 }
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct QuoteResponse {
     #[serde(rename = "inputMint")]
     pub input_mint: String,

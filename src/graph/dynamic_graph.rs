@@ -33,7 +33,6 @@ impl EdgeAttribute {
 }
 
 impl DynamicGraph {
-    #[allow(dead_code)]
     pub fn new(topology: Arc<StaticGraph>, start_node: usize, start_amount: u64) -> Self {
         let n_edge = topology.to.len();
         Self {
@@ -43,7 +42,6 @@ impl DynamicGraph {
             attr: vec![Arc::new(RwLock::new(EdgeAttribute::new())); n_edge],
         }
     }
-
     
     pub async fn update_edge_attr<F, Fut>(&mut self, min_millis: u128, max_concurrency: usize, update_fn: F)
         -> Vec<Result<(), Box<dyn std::error::Error + Send>>>
